@@ -10,11 +10,13 @@ import com.palmergames.bukkit.towny.event.player.PlayerDeniedBedUseEvent;
 import com.palmergames.bukkit.towny.object.Resident;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,13 +24,11 @@ import java.util.Set;
  */
 public class TownyActionListener implements Listener {
 
-    public static final Set<Material> VEHICLE_MATERIALS = Set.of(
-            Material.ACACIA_BOAT, Material.BAMBOO_RAFT, Material.BIRCH_BOAT, Material.CHERRY_BOAT,
-            Material.DARK_OAK_BOAT, Material.JUNGLE_BOAT, Material.MANGROVE_BOAT, Material.OAK_BOAT,
-            Material.SPRUCE_BOAT, Material.ACACIA_CHEST_BOAT, Material.BAMBOO_CHEST_RAFT, Material.BIRCH_CHEST_BOAT,
-            Material.CHERRY_CHEST_BOAT, Material.DARK_OAK_CHEST_BOAT, Material.JUNGLE_CHEST_BOAT, Material.MANGROVE_CHEST_BOAT,
-            Material.OAK_CHEST_BOAT, Material.SPRUCE_CHEST_BOAT, Material.MINECART
-    );
+    public static final Set<Material> VEHICLE_MATERIALS = new HashSet<>();
+    static {
+        VEHICLE_MATERIALS.add(Material.MINECART);
+        VEHICLE_MATERIALS.addAll(Tag.ITEMS_BOATS.getValues());
+    }
 
     @EventHandler
     public void onBuild(TownyBuildEvent event) {
