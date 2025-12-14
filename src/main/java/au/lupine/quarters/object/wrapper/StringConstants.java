@@ -25,4 +25,5 @@ public class StringConstants {
     public static final String YOU_HAVE_NOT_SELECTED_ANY_AREAS = "You have not selected any areas, add your current selection with /quarters selection add";
     public static final String YOU_HAVE_SUCCESSFULLY_EVICTED_THIS_QUARTERS_OWNER = "You have successfully evicted this quarter's owner";
     public static final String A_NUMBER_YOU_PROVIDED_WAS_INVALID = "A number you provided was invalid";
+    public static final String CHUNK_CONTAINING_THE_SELECTED_LOCATION_IS_NOT_LOADED = "The chunk containing the selected location is not loaded";
 }

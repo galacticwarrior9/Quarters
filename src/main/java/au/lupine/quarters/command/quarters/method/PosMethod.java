@@ -35,6 +35,10 @@ public class PosMethod extends CommandMethod {
         Location location = player.getLocation();
         location.add(adjustX, adjustY, adjustZ);
 
+        if (!location.isChunkLoaded()) {
+            throw new CommandMethodException(StringConstants.CHUNK_CONTAINING_THE_SELECTED_LOCATION_IS_NOT_LOADED);
+        }
+
         SelectionManager sm = SelectionManager.getInstance();
 
         sm.selectPosition(player, location, type);
