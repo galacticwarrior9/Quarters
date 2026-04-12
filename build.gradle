@@ -3,7 +3,7 @@ plugins {
     id "maven-publish"
 }
 
-def semVersion = "1.0.7"
+def semVersion = "1.0.9"
 
 def static gitBranch() {
     "git rev-parse --abbrev-ref HEAD".execute().text.trim()
@@ -34,8 +34,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-    compileOnly("com.palmergames.bukkit.towny:towny:0.101.1.0")
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    compileOnly("com.palmergames.bukkit.towny:towny:0.101.2.5")
     compileOnly("me.clip:placeholderapi:2.11.6")
 }
 
