@@ -35,7 +35,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
-    compileOnly("com.palmergames.bukkit.towny:towny:0.101.2.5")
+    compileOnly("com.palmergames.bukkit.towny:towny:0.103.0.0")
     compileOnly("me.clip:placeholderapi:2.11.6")
 }
 
@@ -73,8 +73,18 @@ processResources {
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = "ccnet-repo"
+            url = uri("https://repo.ccnetmc.com/repository/ccnet-maven/")
+            credentials {
+                username = project.findProperty("ccnetRepoUsername") as String
+                password = project.findProperty("ccnetRepoPassword") as String
+            }
         }
     }
 }
